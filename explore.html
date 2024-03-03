@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+            z-index: 100;
+            background-color: #FFD166;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Align items horizontally */
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .search-container input[type="text"] {
+            padding: 8px;
+            width: 300px;
+        }
+        .search-container input[type="submit"] {
+            padding: 8px 12px;
+            background-color: #af954c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .search-container button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .container{
+            text-align:left;
+            justify-content: center;
+            padding: 200px;
+        }
+        .section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .section img {
+            height: auto;
+            border-radius: 5px;
+        }
+        .section-content {
+            margin-top: 10px;
+            margin-left: 10%;
+            
+            
+        }
+        .connect{
+            background-color:#001F3F ;
+            color: whitesmoke;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+            transform: translateX(100%); /* Initially hide the sidebar */
+            transition: transform 0.3s ease-in-out;
+            
+        }
+        .sidebar.active {
+            transform: translateX(0); /* Show the sidebar */
+        }
+        #sidebarTitle{
+            padding: 100px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Media queries for responsiveness */
+        @media only screen and (max-width: 768px) {
+            nav {
+                height: 80px; /* Adjust navbar height for smaller screens */
+                line-height: 80px;
+            }
+            .search-container input[type="text"] {
+                width: 200px; 
+            }
+            .search-container input[type="submit"] {
+                width: 50px; 
+            }
+            .container {
+                padding: 10px; 
+            }
+            .section {
+                padding: 5px; 
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!--The navigation bar that routes the page to a different once when clicked-->
+    <nav class ="nav">
+        <div class="nav-logo">
+            <img src="/logo.png">
+        </div>
+        <div class = "nav-menu" id="navMenu">
+            <ul>
+                <li><a href="/index.html" class="link active">Home</a></li>
+                <li><a href="#" class="link">Explore</a></li>
+                <li><a href="#" class="link">About</a></li>
+                <li><a href="#" class="link">Help</a></li>
+            </ul>
+        </div>
+        <div class="search-container">
+            <form action="/search" method="GET">
+                <input type="text" placeholder="Search..." name="search" >
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section" onclick="showSidebar('Bukayo Saka', 'I am a London based UI/UX designer with 3 years of experience, looking to meet more like minded people')">
+            <img src="https://celebnetworth.net/wp-content/uploads/2020/08/Bukayo-Saka-wiki-768x1002.jpg" alt="Image 1" width="8%" height="8%">
+            <div class="section-content">
+                <h3>Bukayo Saka</h3>
+                <p>I am a London based UI/UX designer with 3 years of experience, looking to meet more like minded people</p>
+                <button class="connect">Connect</button>
+            </div>
+        </div>
+    
+        <div class="section" onclick="showSidebar('Levi Ackerman', 'Product Design and Web developer')">
+            <img src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/01/a0001921/img/basic/a0001921_main.jpg?20190510100030"
+             alt="Image 2" width="8%" height="8%">
+            <div class="section-content">
+                <h3>Levi Ackermann</h3>
+                <p>Product Design and Web developer</p>
+                <button class="connect">Connect</button>
+            </div>
+        </div>
+
+        <div class="section" onclick="showSidebar('Itadori Yuji', 'Full Stack Developer looking to connect')">
+            <img src="https://images.saymedia-content.com/.image/t_share/MTc1MTEwODI0MzIyMDgxODg3/top-20-the-most-handsome-hottest-and-talented-japanese-actors.jpg"
+             alt="Image 2" width="8%" height="8%">
+            <div class="section-content">
+                <h3>Itadori Yuji</h3>
+                <p>Full Stack Developer looking to connect</p>
+                <button class="connect">Connect</button>
+            </div>
+        </div>
+
+        <div class="section" onclick="showSidebar('John Cena', 'Product Manager and Project Manager looking for a team of web developers and designers to work with.')">
+            <img src="https://www.blackfilm.com/read/wp-content/uploads/2015/07/John-Cena.jpg" alt="Image 2" width="8%" height="8%">
+            <div class="section-content">
+                <h3>John Cena</h3>
+                <p>Product Manager and Project Manager looking for a team of web developers and designers to work with.</p>
+                <button class="connect">Connect</button>
+            </div>
+        </div>
+
+        <div class="section" onclick="showSidebar('Gojo Satoru', 'I am an undergrad who is looking for someone in the industry that can mentor my development path')">
+            <img src="https://i.pinimg.com/originals/f3/33/4d/f3334d4ef14993ca494e1059e36e61ec.jpg" alt="Image 2" width="8%" height="8%">
+            <div class="section-content">
+                <h3>Gojo Satoru</h3>
+                <p>I am an undergrad who is looking for someone in the industry that can mentor my development path</p>
+                <button class="connect">Connect</button>
+            </div>
+        </div>
+
+        <div class="section" onclick="showSidebar('Erling Haaland','Product designer with a knack for creating detail oriented mockups and web app designs.')">
+            <img src="https://bulinews.com/i/x/2333.jpg" alt="Image 2" width="8%" height="8%">
+            <div class="section-content">
+                <h3>Erling Haaland</h3>
+                <p>Product designer with a knack for creating detail oriented mockups and web app designs.</p>
+                <button class="connect">Connect</button>
+            </div>
+        </div>
+
+        <!--This is to display a side bar when clicked-->
+        <div class="sidebar" id="sidebar">
+            <h2 id="sidebarTitle"></h2>
+            <p id="sidebarDescription"></p>
+            <button class="connect">Connect</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the sidebar with full details
+        function showSidebar(title, description) {
+            document.getElementById('sidebarTitle').innerText = title;
+            document.getElementById('sidebarDescription').innerText = description;
+            document.getElementById('sidebar').classList.add('active');
+        }
+    </script>
+    
+</body>
+</html>
